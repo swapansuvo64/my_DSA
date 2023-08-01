@@ -14,9 +14,9 @@ void sorting()
 	int i,j,temp,f;
 	for(i=0;i<4;i++)
 	{
-		temp=a[i+1];
+		temp=a[i+1]; //temp=a[i]
 		j=i;
-		while(j>=0 && a[j]>temp)
+		while(j>=0 && a[j]>temp) //for(j=i-1;j>=0&&a[j]>temp;j--)
 		{
 			
 				a[j+1]=a[j];
