@@ -22,7 +22,7 @@ void sorting()
 				a[j+1]=a[j];
 				j--;	
 		}
-			a[j]=temp;		
+			a[j+1]=temp;		
 	}
 	
 }
