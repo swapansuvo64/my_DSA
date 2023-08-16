@@ -218,12 +218,57 @@ void choice()
 		}
 		
 	}
-
+	void search()
+		{
+			int num;
+			if(head==NULL)
+			{
+				printf("your link is empty\n");
+				choice();
+			}
+			else
+			{
+				printf("Enter the data for searching");
+				scanf("%d",&num);
+				temp=head;
+				int i=0;
+	        	while (temp->next != NULL)
+	        	{
+	        		if(temp->data==num)
+	        		{
+	        			printf("%d found in %d position in %d times\n",num,i);
+	        			break;
+					}
+	                temp = temp->next;
+	                i++;
+				}
+	        	if(f=0)
+				{
+					printf("value not found\n");	
+				}	
+			}	
+		}
+//	void sorting()
+//	{
+//		int small,num;
+//		temp=head;
+//		small=temp->data;
+//		while(temp->next!=NULL)
+//		{
+//			temp = temp->next;
+//			num=temp->data;
+//			if(small>num)
+//			{
+//				
+//			}
+//		}
+//	}
 	while(1)
 	{
 		printf("press--->1 to insert\n");
 		printf("press-->2 to delete\n");
 		printf("press-->3 to display\n");
+		printf("press-->4 to search\n");
 		scanf("%d",&f);
 		switch(f)
 		{
@@ -232,6 +277,8 @@ void choice()
 			case 2:delet();
 			break;
 			case 3: display();
+			break;
+			case 4: search();
 			break;
 			default: printf("Check your choosed option\n");
 			break;
