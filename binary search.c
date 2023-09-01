@@ -20,7 +20,7 @@ void main()
 			
 				if(a[mid]==n)
 				{
-					printf("value found");
+					printf("value found in a[%d]",mid);
 					f=1;
 					break;
 				}

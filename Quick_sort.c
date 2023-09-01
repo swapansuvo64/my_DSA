@@ -5,52 +5,57 @@ void swap(int *a,int *b)
     *a = *b;
     *b = temp;
 }
-int partition(int a[],int lb,int ub)
-{
-	int pivot=a[lb];
-	int start=lb;
-	int end=ub;
-	while(start<end)
-	{
-		while(a[start]<=pivot)
-		{
-			start++;
-		}
-		while(a[end]>pivot)
-		{
-			end--;
-		}
-		if(start<end)
-		{
-			swap(&a[start],&a[end]);
-		}
-	swap(&a[lb],&a[end]);	
-	}
-	return end;	
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];
+    int i = (low - 1);
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+//    	for (int k = 0; k < 5; k++) {
+//       		 printf("a[%d]=%d \n",k, arr[k]);
+//    	}
+    return (i + 1);
 }
 void quickSort(int a[],int lb,int ub)
 {
+	int i;
 	if(lb<ub)
 	{
 		int pi = partition(a,lb,ub);
+//		for (int i = 0; i < 5; i++) {
+//       		 printf("a[%d]=%d \n",i, a[i]);
+//    	}
 		quickSort(a,lb,pi-1);
+//		for (int i = 0; i < 5; i++) {
+//       		 printf("a[%d]=%d \n",i, a[i]);
+//   		 }
 		quickSort(a,pi+1,ub);	
+//		 for (int i = 0; i < 5; i++) {
+//        	printf("a[%d]=%d \n",i, a[i]);
+//  	  }
 	}
 }
 void main()
 {
-	int arr[] = {10, 7, 8, 9, 1, 5};
-    int n = sizeof(arr) / sizeof(arr[0]);
+	int arr[100];
+	 for (int i = 0;i<5; i++)
+	{
+        scanf("%d",&arr[i]);
+    }
 
     printf("Original array: ");
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < 5; i++) {
         printf("%d ", arr[i]);
     }
 
-    quickSort(arr, 0, n - 1);
+    quickSort(arr, 0, 4);
 
     printf("\nSorted array: ");
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < 5; i++) {
         printf("%d ", arr[i]);
     }
 }
