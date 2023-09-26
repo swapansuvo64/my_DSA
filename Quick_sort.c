@@ -6,7 +6,7 @@ void swap(int *a,int *b)
     *b = temp;
 }
 int partition(int arr[], int low, int high) {
-    int pivot = arr[high];
+    int pivot = arr[high];//int pivot = arr[low]; 
     int i = (low - 1);
     for (int j = low; j <= high - 1; j++) {
         if (arr[j] <= pivot) {
@@ -14,10 +14,22 @@ int partition(int arr[], int low, int high) {
             swap(&arr[i], &arr[j]);
         }
     }
-    swap(&arr[i + 1], &arr[high]);
+    swap(&arr[i + 1], &arr[high]);//swap(&arr[low], &arr[i]);
 //    	for (int k = 0; k < 5; k++) {
 //       		 printf("a[%d]=%d \n",k, arr[k]);
-//    	}
+////    	}
+////int partition(int arr[], int low, int high) {
+//    int pivot = arr[low]; // Pivot is taken from the lower bound
+//    int i = low;
+//    for (int j = low + 1; j <= high; j++) {
+//        if (arr[j] <= pivot) {
+//            i++;
+//            swap(&arr[i], &arr[j]);
+//        }
+//    }
+//    swap(&arr[low], &arr[i]);
+//    return i;
+//}
     return (i + 1);
 }
 void quickSort(int a[],int lb,int ub)
