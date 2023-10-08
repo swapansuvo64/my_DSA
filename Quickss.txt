@@ -1,0 +1,53 @@
+	{
+		for(int ia=si;ia<=mid;ia++)
+		{
+			for(int j=ia;j<=mid;j++)
+			{
+				if(a[ia]>a[j])
+				{
+					int temp=a[ia];
+					a[ia]=a[j];
+					a[j]=temp;
+				}
+			}
+		}
+		for(int ib=mid+1;ib<=ei;ib++)
+		{
+			for(int k=ib;k<=ei;k++)
+			{
+				if(a[ib]>a[k])
+				{
+					int temp=a[ib];
+					a[ib]=a[k];
+					a[k]=temp;
+				}
+			}
+		}
+
+
+
+		while(ia<mid+1 && ib<=ei)
+		{
+			if(a[ia]<a[ib])
+			{
+				x[j]=a[ia];
+				j++;
+				ia++;	
+			}
+			else if(a[ia]>a[ib]){
+				x[j]=a[ib];
+				ib++;
+				j++;
+			}
+			else if(ia<=mid)
+			{
+				x[j]=a[ia++];
+				j++;
+			}
+			else if(ib<=ei)
+			{
+				x[j]=a[ib++];
+				j++;
+			}	
+		}
+		printf("\n%d  %d\n",ia,ib);

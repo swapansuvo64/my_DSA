@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 void merge(int a[], int left, int right, int mid) {
     int n1 = (mid - left) + 1;
     int n2 = right - mid;
@@ -11,7 +10,6 @@ void merge(int a[], int left, int right, int mid) {
     for (j = 0; j < n2; j++) {
         a2[j] = a[mid + 1 + j];
     }
-    
     i = 0;
     j = 0;
     k = left;
@@ -25,20 +23,17 @@ void merge(int a[], int left, int right, int mid) {
         }
         k++;
     }
-    
     while (i < n1) {
         a[k] = a1[i];
         i++;
         k++;
-    }
-    
+    } 
     while (j < n2) {
         a[k] = a2[j];
         j++;
         k++;
     }
 }
-
 void mergesort(int a[], int l, int r) {
     if (l < r) {
         int mid = (l + r) / 2;

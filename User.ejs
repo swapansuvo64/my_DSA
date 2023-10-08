@@ -1,0 +1,188 @@
+<%- include('partials/header') %>
+
+<div class="header">
+    <nav id="navbar">
+        <img src="images/logo-red.png" class = "logo">
+        <ul class="nav-links">
+            <li><a href="#" id="randomLink" class="active">Plan Random</a></li>
+            <li><a href="/Dubai">Visit Puri</a></li>
+            <li><a href="/Rajasthan">Visit Rajasthan</a></li>
+        </ul>
+        <a href="/login" class="register-btn">Register Now</a>
+        <i class="fas fa-bars" onclick="togglebtn()"></i>
+    </nav>
+    
+    <div class="container">
+        <h1> Find Your Next Stay</h1>
+        <div class="search-bar">
+            <form action="/search" method="get">
+                <div class="location-input">
+                    <label for="placeName">
+                        Location
+                    </label>
+                        <input type="text" id="placeName" name="placeName" placeholder="Where are you going?">
+                </div>
+                <div>
+                    <label>
+                        Check In
+                    </label>
+                        <input type="text" placeholder="Add Date">
+                </div>
+                <div>
+                    <label>
+                        Check Out
+                    </label>
+                        <input type="text" placeholder="Add Date">
+                </div>
+                <div>
+                    <label>
+                        Guest
+                    </label>
+                        <input type="text" placeholder="Add Guest">
+                </div>
+                <button type="submit"><img src="images/search.png"></button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h2 class="sub-title">Exclusives</h2>
+    <div class="exclusives">
+        <div>
+            <a href="/London">  <img src="images/image-1.png">
+            <span>
+                <h3 >London </h3>
+                <p>Starts @ 500$</p>
+            </span>
+        </div></a>
+        <a href="/San Fransisco">
+            <div>
+            <img src="images/image-2.png">
+            <span>
+                <h3>San Fransisco</h3>
+                <p>Starts @ 500$</p>
+            </span>
+        </div></a>
+        <a href="/Switzerland"><div>
+            <img src="images/image-3.png">
+            <span>
+                <h3>Switzerland</h3>
+                <p>Starts @ 500$</p>
+            </span>
+        </div></a>
+        <a href="/Australia"> <div>
+            <img src="images/image-4.png">
+            <span>
+                <h3>Australia </h3>
+                <p>Starts @ 500$</p>
+            </span>
+        </div></a>
+        <a href="/France"> <div>
+            <img src="images/image-5.png">
+            <span>
+                <h3>France</h3>
+                <p>Starts @ 500$</p>
+            </span>
+        </div></a>
+        
+    </div>
+    <div class="container">
+    <h2 class="sub-title"><section id="trending places">Trending Places</section></h2>
+    <div class="trending">
+        <div>
+            <a href="/Dubai"> <img src="images/dubai.png" alt=""></a>
+            <h3>Dubai</h3>
+        </div>
+        <div>
+            <a href="/New York"> <img src="images/new-york.png" alt=""></a>
+            <h3>New York</h3>
+        </div>
+        <div>
+            <a href="/New Delhi"> <img src="images/new-delhi.png" alt=""></a>
+            <h3>New Delhi</h3>
+        </div>
+        <div>
+            <a href="/Paris"> <img src="images/paris.png" alt=""></a>
+            <h3>Paris</h3>
+        </div>
+    </div>   
+    <div class="cta">
+        <h3>Flying <br> Is Cheaper Now</h3>
+        <p>Great Discounts on Flying <br> Use our code Travel.</p>
+        <a href="#" class = "cta-btn">Know More</a>
+    </div> 
+</div>
+<div class="container">
+    <h2 class="sub-title">Travellers Stories</h2>
+    <div class="stories">
+        <div>
+            <img src="images/story-1.png" alt="">
+            <p>Popular European Countries With Less Budgets</p>
+        </div>
+        <div>
+            <img src="images/story-2.png" alt="">
+            <p>Popular European Countries With Less Budgets</p>
+        </div>
+        <div>
+            <img src="images/story-3.png" alt="">
+            <p>Popular European Countries With Less Budgets</p>
+        </div>
+    </div>
+    <div class="abt-msg">
+        <h2>About Message</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco<br> laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <br>voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+        </p>
+    </div>
+    </div>
+    <div class="footer">
+        <a href="https://facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+        <p><HR><br>
+            © Copyright 2022 Sigma Team. All rights reserved.
+        </p>
+        </div>
+    </div>
+    <script>
+        var navbar =  document.getElementById("navbar");
+        function togglebtn(){
+            navbar.classList.toggle("hidemenu");
+        }
+    </script>
+</div>
+<script>
+    const randomRoutes = [
+  "/London",
+  "/Paris",
+  "/New york",
+  "/San Fransisco",
+  "/Switzerland",
+  "/Australia",
+  "/France",
+  "/Dubai",
+  "/New Delhi",
+"/Rajasthan"
+];
+
+const randomLink = document.getElementById("randomLink");
+
+
+randomLink.addEventListener("click", function(event) {
+  event.preventDefault();
+
+
+  const randomIndex = Math.floor(Math.random() * randomRoutes.length);
+
+ 
+  const randomRoute = randomRoutes[randomIndex];
+
+  
+  window.location.href = randomRoute;
+});
+
+</script>
+<a href="/input"><p class="hjk">input</p></a>
+<%- include('partials/fotter') %>
