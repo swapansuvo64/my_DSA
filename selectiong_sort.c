@@ -16,6 +16,7 @@ void main()
 	{
 		key=a[i];
 		small=key;
+		pos=i;
 		for(j=i;j<6;j++)
 		{
 			if(small>a[j])
