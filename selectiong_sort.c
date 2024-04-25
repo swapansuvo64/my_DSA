@@ -1,37 +1,30 @@
-#include<stdio.h>
-void main()
-{
-	int a[6],i,j,key,small,f,pos;
-	printf("Enter your arrya\n");
-	for(i=0;i<6;i++)
-	{
-		scanf("%d",&a[i]);	
-	}
-	printf("After insert: \n");
-		for(i=0;i<6;i++)
-	{
-		printf("a[%d]= %d\n",i,a[i]);	
-	}
-	for(i=0;i<6;i++)
-	{
-		key=a[i];
-		small=key;
-		pos=i;
-		for(j=i;j<6;j++)
-		{
-			if(small>a[j])
-			{          
-				small=a[j];
-				pos=j;
-			}
-		}
-		
-		a[i]=small;
-		a[pos]=key;
-	}
-	printf("after sorting: \n");
-	for(i=0;i<6;i++)
-	{
-		printf("a[%d]= %d\n",i,a[i]);	
-	}
+#include <stdio.h>
+
+void selectionSort(int arr[], int n) {
+    int i, j, minIndex, temp;
+    for (i = 0; i < n - 1; i++) {
+        minIndex = i;
+        for (j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        if (minIndex != i) {
+            temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
+}
+
+int main() {
+    int arr[] = {64, 25, 12, 22, 11};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    selectionSort(arr, n);
+    printf("Sorted array: \n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
 }
