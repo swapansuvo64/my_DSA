@@ -1,47 +1,28 @@
-#include<stdio.h>
-int a[5];
-void display()
-{
-	int i;
-	
-	for(i=0;i<5;i++)
-	{
-		printf("\na[%d]=%d",i,a[i]);
-	}	
+#include <stdio.h>
+
+void insertionSort(int arr[], int n) {
+    int i, key, j;
+    for (i = 1; i < n; i++) {
+        key = arr[i];
+        j = i - 1;
+
+        /* Move elements of arr[0..i-1], that are greater than key, to one position ahead of their current position */
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
 }
-void sorting()
-{
-	int i,j,temp,f;
-	for(i=0;i<4;i++)
-	{
-		temp=a[i+1]; //temp=a[i]
-		j=i;
-		while(j>=0 && a[j]>temp) //for(j=i-1;j>=0&&a[j]>temp;j--)
-		{
-			
-				a[j+1]=a[j];
-				j--;	
-		}
-			a[j+1]=temp;		
-	}
-	
-}
-void input()
-{
-	int i;
-	for(i=0;i<5;i++)
-	{
-		printf("\na[%d]=",i);
-		scanf("%d",&a[i]);
-	}
-	
-}
-void main()
-{
-	input();
-	printf("\nBefore shorting \n");
-	display();
-	sorting();
-	printf("\nafter shorting \n");
-	display();	
+
+int main() {
+    int arr[] = {12, 11, 13, 5, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    insertionSort(arr, n);
+    printf("Sorted array: \n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
 }
